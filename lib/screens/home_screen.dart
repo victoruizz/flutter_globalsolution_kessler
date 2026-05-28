@@ -9,6 +9,7 @@ import '../widgets/orbital_decoration.dart';
 import '../widgets/primary_button.dart';
 import 'about_screen.dart';
 import 'catalog_screen.dart';
+import 'saved_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -161,6 +162,33 @@ class HomeScreen extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const SavedScreen(),
+                    ),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppColors.textPrimary,
+                  side: const BorderSide(
+                    color: AppColors.spaceBorder,
+                    width: 1,
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 18),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(4)),
+                  ),
+                ),
+                child: Text(
+                  'MEUS DETRITOS ($monitoredCount)',
+                  style: AppTypography.labelLarge().copyWith(
+                    color: AppColors.textPrimary,
+                  ),
+                ),
               ),
               const SizedBox(height: 12),
               OutlinedButton(
