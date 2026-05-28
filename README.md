@@ -157,23 +157,6 @@ lib/
     ├── saved_screen.dart
     └── splash_screen.dart
 ```
-
----
-
-## Requisitos atendidos
-
-| # | Requisito | Pontos | Onde é atendido |
-|---|---|---|---|
-| 1 | Tela de Splash com logo | 0,5 | `lib/screens/splash_screen.dart` |
-| 2 | Tela de Introdução com botões e descrição | 1,0 | `lib/screens/intro_screen.dart` |
-| 3 | Navegação entre 4+ telas (sem contar splash/intro) | 2,0 | 7 telas: Login, Home, Catálogo, Detalhe, Meus Detritos, Confirmação, Sobre |
-| 4 | Column, Row, Card, ListView, Scaffold | 2,0 | Presentes em todas as telas e widgets |
-| 5 | Lista mockada relacionada ao tema | 1,5 | `lib/data/repositories/debris_repository.dart` (16 detritos) |
-| 6 | Interação: botões, filtros, seleção, atualização | 2,0 | Login (TextField + chips + Slider + Dropdown), filtros por risco, monitorar, adotar |
-| 7 | Organização, boas práticas, estados/recomposição, reuso | 1,0 | Camadas separadas, `ChangeNotifier` + Provider, widgets reaproveitados |
-
-**Total: 10,0.**
-
 ---
 
 ## Estado e recomposição
