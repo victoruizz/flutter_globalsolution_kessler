@@ -15,7 +15,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final monitoredCount = context.watch<AppState>().monitoredCount;
+    final state = context.watch<AppState>();
+    final monitoredCount = state.monitoredCount;
+    final user = state.user;
     final totalDebris = DebrisRepository.all.length;
     final totalMassTons = DebrisRepository.all
             .fold<double>(0, (sum, d) => sum + d.massKg) /
@@ -88,7 +90,31 @@ class HomeScreen extends StatelessWidget {
                     horizontal: 20,
                     vertical: 24,
                   ),
-                  child: Row(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (user != null) ...[
+                        Text(
+                          'BEM-VINDO, ${user.name.toUpperCase()}',
+                          style: AppTypography.titleMedium(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${user.gender.label} · ${user.age} anos · ${user.country.label}',
+                          style: AppTypography.labelSmall().copyWith(
+                            color: AppColors.textTertiary,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const Divider(
+                          height: 1,
+                          color: AppColors.spaceBorder,
+                        ),
+                        const SizedBox(height: 16),
+                      ],
+                      Row(
                     children: [
                       Expanded(
                         child: _StatTile(
@@ -119,6 +145,8 @@ class HomeScreen extends StatelessWidget {
                           highlight: true,
                         ),
                       ),
+                    ],
+                  ),
                     ],
                   ),
                 ),

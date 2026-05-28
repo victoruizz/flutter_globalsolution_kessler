@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-import 'home_screen.dart';
+import 'login_screen.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -48,15 +48,15 @@ class _IntroScreenState extends State<IntroScreen> {
     ),
   ];
 
-  void _goToHome() {
+  void _goToLogin() {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(builder: (_) => const HomeScreen()),
+      MaterialPageRoute<void>(builder: (_) => const LoginScreen()),
     );
   }
 
   void _onAdvance() {
     if (_currentPage == _pages.length - 1) {
-      _goToHome();
+      _goToLogin();
     } else {
       _controller.nextPage(
         duration: const Duration(milliseconds: 300),
@@ -98,7 +98,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   vertical: 12,
                 ),
                 child: TextButton(
-                  onPressed: _goToHome,
+                  onPressed: _goToLogin,
                   style: TextButton.styleFrom(
                     foregroundColor: AppColors.textSecondary,
                   ),

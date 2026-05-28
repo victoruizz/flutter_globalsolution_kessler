@@ -5,7 +5,7 @@ import '../theme/app_typography.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const PrimaryButton({
     super.key,
@@ -15,6 +15,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isEnabled = onPressed != null;
     return SizedBox(
       width: double.infinity,
       height: 56,
@@ -23,6 +24,8 @@ class PrimaryButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.marsOrange,
           foregroundColor: AppColors.spaceBlack,
+          disabledBackgroundColor: AppColors.spaceSurfaceElevated,
+          disabledForegroundColor: AppColors.textTertiary,
           elevation: 0,
           shadowColor: Colors.transparent,
           shape: const RoundedRectangleBorder(
@@ -32,7 +35,9 @@ class PrimaryButton extends StatelessWidget {
         child: Text(
           label,
           style: AppTypography.labelLarge().copyWith(
-            color: AppColors.spaceBlack,
+            color: isEnabled
+                ? AppColors.spaceBlack
+                : AppColors.textTertiary,
             fontWeight: FontWeight.w700,
           ),
         ),
