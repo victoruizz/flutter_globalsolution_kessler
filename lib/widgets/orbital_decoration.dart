@@ -27,7 +27,7 @@ class _OrbitalPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
     final outerRadius = size.width / 2;
 
-    final orbitTilt = -math.pi / 8;
+    const orbitTilt = -math.pi / 8;
 
     _drawOrbit(
       canvas,
@@ -51,7 +51,7 @@ class _OrbitalPainter extends CustomPainter {
       orbitTilt,
     );
 
-    final dotAngle = math.pi / 3;
+    const dotAngle = math.pi / 3;
     final dotRadius = outerRadius * 0.7;
     final dotOffset = _pointOnTiltedEllipse(
       center: center,
